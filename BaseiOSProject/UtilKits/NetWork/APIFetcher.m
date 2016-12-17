@@ -39,11 +39,10 @@ NSString *const kTokenExpiredNotification = @"com.xxx.notification.tokenExpired"
 }
 
 - (void)fetch:(NSString *)url parameters:(NSMutableDictionary *)parameters ompletion:(APIFetcherCompletion)completion {
-    if (parameters == nil) {
-        parameters = [NSMutableDictionary dictionary];
-    }
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    DDLog(@"请求的url = %@, 请求参数 = %@", [APIFetcher urlForAPI:url], parameters);
     
     [self.sessionManager POST:[APIFetcher urlForAPI:url] parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -63,8 +62,8 @@ NSString *const kTokenExpiredNotification = @"com.xxx.notification.tokenExpired"
 
 - (void)handleSuccess:(NSURLSessionDataTask *)task responseObject:(id)responseObject completion:(APIFetcherCompletion)completion {
 #ifdef DEBUG
-    NSData *responseData = (NSData *)responseObject;
-    NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *responseString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     DDLog(@"返回数据 = %@", responseString);
 #endif
     
