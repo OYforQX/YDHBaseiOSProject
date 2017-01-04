@@ -20,11 +20,10 @@
 		5F9F9A191E03AFC500F5FB5A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F9A181E03AFC500F5FB5A /* User.m */; };
 		5F9F9A1C1E03B57500F5FB5A /* APIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F9A1B1E03B57500F5FB5A /* APIModel.m */; };
 		5F9F9A201E03C32900F5FB5A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F9A1F1E03C32900F5FB5A /* Reachability.m */; };
-		D478EB6D7F63727F840A1306 /* libPods-BaseiOSProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBCD0733FE51DC4076B800D /* libPods-BaseiOSProject.a */; };
+		C45B628137BC0D1A77F3B1BD /* Pods_BaseiOSProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AABBE138624DB76EE134F7 /* Pods_BaseiOSProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5EBCD0733FE51DC4076B800D /* libPods-BaseiOSProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseiOSProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F96C0BC1E03A10000764333 /* BaseiOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseiOSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F96C0C01E03A10000764333 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5F96C0C21E03A10000764333 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,6 +52,7 @@
 		5F9F9A1E1E03C32900F5FB5A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		5F9F9A1F1E03C32900F5FB5A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8C97B1F8F1822A6C1C4B0931 /* Pods-BaseiOSProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseiOSProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseiOSProject/Pods-BaseiOSProject.debug.xcconfig"; sourceTree = "<group>"; };
+		D8AABBE138624DB76EE134F7 /* Pods_BaseiOSProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaseiOSProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0DF9BA1514C4938BEEB60C1 /* Pods-BaseiOSProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseiOSProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseiOSProject/Pods-BaseiOSProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D478EB6D7F63727F840A1306 /* libPods-BaseiOSProject.a in Frameworks */,
+				C45B628137BC0D1A77F3B1BD /* Pods_BaseiOSProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +71,7 @@
 		58B278944E22AF1DA7D19BE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5EBCD0733FE51DC4076B800D /* libPods-BaseiOSProject.a */,
+				D8AABBE138624DB76EE134F7 /* Pods_BaseiOSProject.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -229,7 +229,7 @@
 		5F96C0B41E03A10000764333 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = getinlight;
 				TargetAttributes = {
 					5F96C0BB1E03A10000764333 = {
@@ -368,6 +368,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -415,6 +416,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -442,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8C97B1F8F1822A6C1C4B0931 /* Pods-BaseiOSProject.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RU8KR75ZPA;
 				GCC_PREFIX_HEADER = BaseiOSProject/PrefixHeader.pch;
@@ -456,6 +459,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F0DF9BA1514C4938BEEB60C1 /* Pods-BaseiOSProject.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RU8KR75ZPA;
 				GCC_PREFIX_HEADER = BaseiOSProject/PrefixHeader.pch;
