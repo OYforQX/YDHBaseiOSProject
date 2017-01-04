@@ -11,11 +11,11 @@
 #import "ConfigNetWork.h"
 
 typedef NS_ENUM(NSUInteger, APIErrorCode) {
-    XKAPIErrorCodeBadServerResponse = 0,
-    XKAPIErrorCodeSuccess,
-    XKAPIErrorCodeFail,
-    XKAPIErrorCodeTokenExpired,
-    XKAPIErrorCodeDuplicateLogin
+    APIErrorCodeBadServerResponse = 0,
+    APIErrorCodeSuccess,
+    APIErrorCodeFail,
+    APIErrorCodeTokenExpired,
+    APIErrorCodeDuplicateLogin
 };
 
 /**
@@ -27,7 +27,7 @@ extern NSString * const kDuplicateLoginNotification;
  */
 extern NSString * const kTokenExpiredNotification;
 
-@interface APIFetcher : NSObject
+@interface APIFetcher : NSObject <NSCopying, NSMutableCopying>
 
 typedef void(^APIFetcherCompletion) (id data,NSString *message, NSError *error);
 
@@ -39,8 +39,6 @@ typedef void(^APIFetcherCompletion) (id data,NSString *message, NSError *error);
 - (void)invalidateTasks;
 
 + (NSString *)urlForLink:(NSString *)link;
-
-+ (NSString *)urlForAPI:(NSString *)api;
 
 - (void)fetch:(NSString *)url parameters:(NSMutableDictionary *)parameters ompletion:(APIFetcherCompletion)completion;
 

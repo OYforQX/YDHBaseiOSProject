@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface User : NSObject
+@interface User : NSObject<NSCoding>
 
 @property (strong, nonatomic) NSString *userID;
 @property (strong, nonatomic) NSString *token;

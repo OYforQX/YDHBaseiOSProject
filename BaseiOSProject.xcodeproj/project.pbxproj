@@ -14,6 +14,8 @@
 		5F96C0D91E03A79200764333 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F96C0D81E03A79200764333 /* MainTabBarController.m */; };
 		5F96C0DC1E03A7A500764333 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F96C0DB1E03A7A500764333 /* MainNavigationController.m */; };
 		5F96C0E01E03A7C700764333 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F96C0DF1E03A7C700764333 /* HomeViewController.m */; };
+		5F9D81EB1E1CA02200B69693 /* DataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9D81EA1E1CA02200B69693 /* DataCache.m */; };
+		5F9D81EE1E1CA34D00B69693 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9D81ED1E1CA34D00B69693 /* UserManager.m */; };
 		5F9F9A141E03AE6100F5FB5A /* APIFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F9A131E03AE6100F5FB5A /* APIFetcher.m */; };
 		5F9F9A191E03AFC500F5FB5A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F9A181E03AFC500F5FB5A /* User.m */; };
 		5F9F9A1C1E03B57500F5FB5A /* APIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F9A1B1E03B57500F5FB5A /* APIModel.m */; };
@@ -36,6 +38,10 @@
 		5F96C0DB1E03A7A500764333 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		5F96C0DE1E03A7C700764333 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		5F96C0DF1E03A7C700764333 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		5F9D81E91E1CA02200B69693 /* DataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCache.h; sourceTree = "<group>"; };
+		5F9D81EA1E1CA02200B69693 /* DataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCache.m; sourceTree = "<group>"; };
+		5F9D81EC1E1CA34D00B69693 /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
+		5F9D81ED1E1CA34D00B69693 /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
 		5F9F9A121E03AE6100F5FB5A /* APIFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIFetcher.h; sourceTree = "<group>"; };
 		5F9F9A131E03AE6100F5FB5A /* APIFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIFetcher.m; sourceTree = "<group>"; };
 		5F9F9A151E03AEDE00F5FB5A /* ConfigNetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigNetWork.h; sourceTree = "<group>"; };
@@ -134,21 +140,23 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		5F9D81E81E1C9FE000B69693 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				5F9D81E91E1CA02200B69693 /* DataCache.h */,
+				5F9D81EA1E1CA02200B69693 /* DataCache.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		5F9F9A0E1E03AB1600F5FB5A /* UtilKits */ = {
 			isa = PBXGroup;
 			children = (
 				5F9F9A111E03AD5600F5FB5A /* NetWork */,
-				5F9F9A0F1E03AB1600F5FB5A /* Caregory */,
+				5F9D81E81E1C9FE000B69693 /* Tools */,
 				5F9F9A101E03AB1600F5FB5A /* ThirdParty */,
 			);
 			path = UtilKits;
-			sourceTree = "<group>";
-		};
-		5F9F9A0F1E03AB1600F5FB5A /* Caregory */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Caregory;
 			sourceTree = "<group>";
 		};
 		5F9F9A101E03AB1600F5FB5A /* ThirdParty */ = {
@@ -175,6 +183,8 @@
 		5F9F9A161E03AFB800F5FB5A /* UserManager */ = {
 			isa = PBXGroup;
 			children = (
+				5F9D81EC1E1CA34D00B69693 /* UserManager.h */,
+				5F9D81ED1E1CA34D00B69693 /* UserManager.m */,
 				5F9F9A171E03AFC500F5FB5A /* User.h */,
 				5F9F9A181E03AFC500F5FB5A /* User.m */,
 			);
@@ -312,9 +322,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F9D81EB1E1CA02200B69693 /* DataCache.m in Sources */,
 				5F9F9A1C1E03B57500F5FB5A /* APIModel.m in Sources */,
 				5F96C0C41E03A10000764333 /* AppDelegate.m in Sources */,
 				5F9F9A191E03AFC500F5FB5A /* User.m in Sources */,
+				5F9D81EE1E1CA34D00B69693 /* UserManager.m in Sources */,
 				5F96C0C11E03A10000764333 /* main.m in Sources */,
 				5F9F9A141E03AE6100F5FB5A /* APIFetcher.m in Sources */,
 				5F96C0DC1E03A7A500764333 /* MainNavigationController.m in Sources */,

@@ -10,4 +10,18 @@
 
 @implementation User
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super init]) {
+        _token = [aDecoder decodeObjectForKey:@"token"];
+        _userID = [aDecoder decodeObjectForKey:@"userID"];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:_token forKey:@"token"];
+    [aCoder encodeObject:_userID forKey:@"userID"];
+}
+
 @end

@@ -13,10 +13,12 @@
 
 static const NSTimeInterval kDefaultTimeoutInterval = 15.0f;
 
-NSString * const APIErrorDomain = @"com.xxx.api.error";
+NSString * const APIErrorDomain = @"api.error";
 
-NSString *const kDuplicateLoginNotification = @"com.xxx.notification.duplicateLogin";
-NSString *const kTokenExpiredNotification = @"com.xxx.notification.tokenExpired";
+NSString * const kDuplicateLoginNotification = @"notification.duplicateLogin";
+NSString * const kTokenExpiredNotification = @"notification.tokenExpired";
+
+static APIFetcher *_instance = nil;
 
 @interface APIFetcher ()
 
@@ -27,7 +29,24 @@ NSString *const kTokenExpiredNotification = @"com.xxx.notification.tokenExpired"
 @implementation APIFetcher
 
 + (instancetype)fetcher {
-    return [[[self class] alloc] init];
+    return [[self alloc] init];
+}
+
++ (instancetype)allocWithZone:(struct _NSZone *)zone {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _instance = [[super allocWithZone:zone] init];
+    });
+    
+    return _instance;
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    return _instance;
+}
+
+- (id)mutableCopyWithZone:(NSZone *)zone {
+    return _instance;
 }
 
 + (NSString *)urlForAPI:(NSString *)api {
@@ -79,18 +98,18 @@ NSString *const kTokenExpiredNotification = @"com.xxx.notification.tokenExpired"
     }
     
     NSInteger code = model.code;
-    if (code == XKAPIErrorCodeSuccess) {
+    if (code == APIErrorCodeSuccess) {
         completion(model.resultData, model.resultMsg, nil);
         return;
     }
     
-    if (code == XKAPIErrorCodeTokenExpired) {
+    if (code == APIErrorCodeTokenExpired) {
         DDLog(@"Token过期");
         [[NSNotificationCenter defaultCenter] postNotificationName:kTokenExpiredNotification object:nil userInfo:nil];
         return;
     }
     
-    if (code == XKAPIErrorCodeDuplicateLogin) {
+    if (code == APIErrorCodeDuplicateLogin) {
         DDLog(@"异端登录");
         [[NSNotificationCenter defaultCenter] postNotificationName:kDuplicateLoginNotification object:nil userInfo:nil];
         return;
@@ -115,14 +134,14 @@ NSString *const kTokenExpiredNotification = @"com.xxx.notification.tokenExpired"
 + (NSError *)badServerResponse {
     Reachability *reach = [Reachability reachabilityForInternetConnection];
     if (reach.currentReachabilityStatus == NotReachable) {
-        return [NSError errorWithDomain:APIErrorDomain code:XKAPIErrorCodeBadServerResponse userInfo:@{NSLocalizedDescriptionKey: @"当前网络不可用,请检查网络连接"}];
+        return [NSError errorWithDomain:APIErrorDomain code:APIErrorCodeBadServerResponse userInfo:@{NSLocalizedDescriptionKey: @"当前网络不可用,请检查网络连接"}];
     } else {
-        return [NSError errorWithDomain:APIErrorDomain code:XKAPIErrorCodeBadServerResponse userInfo:@{NSLocalizedDescriptionKey: @"服务器异常"}];
+        return [NSError errorWithDomain:APIErrorDomain code:APIErrorCodeBadServerResponse userInfo:@{NSLocalizedDescriptionKey: @"服务器异常"}];
     }
 }
 
 + (NSError *)badModelData {
-    return [NSError errorWithDomain:APIErrorDomain code:XKAPIErrorCodeBadServerResponse userInfo:@{NSLocalizedDescriptionKey: @"模型解析失败"}];
+    return [NSError errorWithDomain:APIErrorDomain code:APIErrorCodeBadServerResponse userInfo:@{NSLocalizedDescriptionKey: @"模型解析失败"}];
 }
 
 + (NSError *)errorWithCode:(APIErrorCode)code message:(NSString *)message {
