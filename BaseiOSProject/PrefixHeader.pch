@@ -18,5 +18,6 @@
 #endif
 
 #import "APIFetcher.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 #endif /* PrefixHeader_pch */
